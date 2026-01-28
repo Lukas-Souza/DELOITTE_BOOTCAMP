@@ -1,0 +1,14 @@
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.AssemblyInfoInputs.cache
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.AssemblyInfo.cs
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.csproj.CoreCompileInputs.cache
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\bin\Debug\net10.0\dia-02.exe
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\bin\Debug\net10.0\dia-02.deps.json
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\bin\Debug\net10.0\dia-02.runtimeconfig.json
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\bin\Debug\net10.0\dia-02.dll
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\bin\Debug\net10.0\dia-02.pdb
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.dll
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\refint\dia-02.dll
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.pdb
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.genruntimeconfig.cache
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\ref\dia-02.dll
