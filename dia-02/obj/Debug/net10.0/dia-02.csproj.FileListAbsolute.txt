@@ -12,3 +12,4 @@ C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\refint\dia-02.dll
 C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.pdb
 C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.genruntimeconfig.cache
 C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\ref\dia-02.dll
+C:\Users\aluno\DELOITTE_BOOTCAMP\dia-02\obj\Debug\net10.0\dia-02.sourcelink.json

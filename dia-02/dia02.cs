@@ -1,30 +1,12 @@
-using System.ComponentModel;
-using System.Data.Common;
-
-public class Stock
-{
-    public List<Produto> Sotck = new List<Produto>();
-}
-public class Produto
-{
-    public string Name { get;  private set;}
-    public double  Price { get; private set; }
-    public int StockQuantity {get; private set;}
-    public Produto( int stockQuantity_, double price_, string name_)
-    {
-        Name = name_;
-        Price = price_;
-        StockQuantity = stockQuantity_;
-    }
-}
+using Data;
 public class dia02
 {
-    public static void Main()
+    public static void Dia02()
     {
         // NEW OBJ PRODCUT 
-        Stock stock = new Stock();
-        string[] data = new string[3];
 
+        string[] data = new string[3];
+        string KEY;
     try
     {
         
@@ -34,12 +16,12 @@ public class dia02
         data[0] = Console.ReadLine();
         while (string.IsNullOrWhiteSpace(data[0]))
         {
-            Console.Write("#      ERRO: COLOQUE UM NUMERO VALIDO: ");
+            Console.Write("#      ERRO: COLOQUE UM NOME VALIDO: ");
             data[0] = Console.ReadLine();
         }    
         
 
-            Console.Write("*      COLOQUE O PRECO DO PRODUTO: ");
+       
         data[1] = Console.ReadLine();
         while (string.IsNullOrWhiteSpace(data[1]) || int.Parse(data[1]) <= 0)
         {
@@ -47,27 +29,31 @@ public class dia02
             data[1] = Console.ReadLine();
         }    
         
-    
-        Console.Write("*      COLOQUE A QUANTIDE DE PRODUTOS EXISTENTES: ");
+    // ARRAYLIST[i].NOME 
+
+      
 
         data[2] = Console.ReadLine();
-        while (string.IsNullOrWhiteSpace(data[2]) || int.Parse(data[1]) <= 0)
+
+        while (string.IsNullOrWhiteSpace(data[2]) || int.Parse(data[2]) <= 0)
         {
             Console.Write("#   ERRO: COLOQUE UMA QUANTIDADE VALIDA: ");
             data[2] = Console.ReadLine();
         }    
         
             Console.WriteLine("|______________ INFORMAÇÂO DO PRODUTO___________");
-            Console.WriteLine("NOME: "+ data[0] +" VALOR UNITARIO: R$" + double.Parse(data[1])+ " QUANTIDADES DISPONIVEL NO STOCK: "+ double.Parse(data[2]));
+            Console.WriteLine("NOME: "+ data[0] +" VALOR UNITARIO: R$ " + double.Parse(data[1])+ " QUANTIDADES DISPONIVEL NO STOCK: "+ int.Parse(data[2]));
             Console.Write("-    PRESSIONE A TECLA [S] PARA SALVAR O PRODUTO NO STOCK: ");
-            stock.Sotck.Add(new Produto(1, 2.3, ""));
+            KEY = Console.ReadLine();
+            
+            if(KEY == "S") ; 
     }
      catch (Exception err)
         {
             Console.WriteLine("# ERRO: ERRO AO CADASTRA O PRODUTO: "+ err);
-            Console.WriteLine("DIGITE S PARA SAIR OU PRESSIONE QUALQUER TECLA PARA CONTINUAR");
-            string key = Console.ReadLine();
-            if( key != "S" || key != "s") Main();
+            Console.WriteLine("DIGITE [S] PARA SAIR OU PRESSIONE QUALQUER TECLA PARA CONTINUAR");
+            string? key = Console.ReadLine();
+            if( key != "S" || key != "s") Dia02();
         }   
     }
 }
