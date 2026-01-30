@@ -1,7 +1,7 @@
 using System;
 using System.Net.Sockets;
 using Data;
-namespace Services
+namespace ServicesCRUD
 {
 
     public class Services
