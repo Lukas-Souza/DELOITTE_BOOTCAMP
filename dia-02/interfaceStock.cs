@@ -23,6 +23,11 @@ public class interfaceStock
         {
         Console.WriteLine("|-----------------------------------------------------------------");
         Console.WriteLine("| BEM VINDO AO SISTEMA DE ESTOQUE DE ARMAZENHAMENTOS DE PRODUTO:   ");
+        Console.WriteLine("| [C] ADICIONAR UM NOVO PRODUTO");
+        Console.WriteLine("| [L] LISTAR TODOS PRODUTO EXISTENTES");
+        Console.WriteLine("| [D] DELETAR O PRODUTO");
+        Console.WriteLine("| [S] SAIR ");
+
         key_ = Console.ReadLine().ToUpper();
         switch (key_)
         {
@@ -77,7 +82,11 @@ public class interfaceStock
                   Console.WriteLine("+ NAME: "+ item.Name+ " PRICE: "+item.Price +" QUANTIDADE DO STOCK: "+ item.StockQuantity);  
                 }
             break;
-
+            
+            case "S":
+                Console.WriteLine("> BYE...");
+                keyInput = false;
+                break;
             default:
             Console.WriteLine("| OPCAO INVALIDA");
             break;
