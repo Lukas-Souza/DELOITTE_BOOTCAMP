@@ -2,66 +2,93 @@
 using DataVisitant;
 using Service;
 
+// VARIABLE
 string Key= "";
 bool condition = true;
 ListService LService = new ListService();
-string INTERFACE_MENU_STRING = "[0] ADICIONAR VISITANTE: \n [2] LISTA VISITANTE: \n [3] SAIDA USUARIO: \n [4] SAIR:";
+string? docs, name, nameClient;
+
+// VARIABLE INTERFACE
+string[] INTEFACE_MENU = 
+{
+    "| [0] ADICIONAR VISITANTE: \n| [1] SAIDA USUARIO: \n| [2] LISTA VISITANTE: \n| [3] SAIR:",
+    "| OPÇÂO INVALIDA",
+    "| OPERAÇÂO REALIZADA COM SUCESSO...",
+    "| NÂO FOI POSSIVEL REALIZAR ESSA OPERAÇÂO !!!",
+    "------------------------------------------------------------------\n",
+    "_________________________LIST OR BY ID____________________________\n",
+    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+};
+
 
 do
 {
-    Console.WriteLine(INTERFACE_MENU_STRING);
+    Console.WriteLine(INTEFACE_MENU[0]);
     Key = Console.ReadLine();
     switch (Key)
     {
         case "0":
+        Console.WriteLine(INTEFACE_MENU[4]);
         Console.WriteLine("DIGITE O NOME DO CLIENTE: ");
-        string name = Console.ReadLine();
+        name = Console.ReadLine();
 
         Console.WriteLine("INFORME OS DOCUMENTOS: ");
-        string docs = Console.ReadLine();
+        docs = Console.ReadLine();
 
-        LService.AddUser(name, docs, DateTime.Now);
-        Console.WriteLine(" CLIENTE ADICIONADO..");
+        LService.AddUser(name, docs);
+        Console.WriteLine(INTEFACE_MENU[2]);
+        Console.WriteLine(INTEFACE_MENU[4]);
         break;
 
         case "1":
-        Console.WriteLine("QUAL O NOME DO CLIENTE: ");
-        string nameCLient = Console.ReadLine();
-        LService.ExitVisit(nameCLient);
+        Console.WriteLine(INTEFACE_MENU[5]);
+        Console.Write("NOME DO CLIENT:");
+        try
+        {
+         
+        nameClient = Console.ReadLine();
+        Console.WriteLine(INTEFACE_MENU[2]);
+        Console.WriteLine(INTEFACE_MENU[4]);
+        LService.ExitVisit(nameClient);   
+        }
+        catch (System.Exception err)
+        {
+            
+            throw new ArgumentException(INTEFACE_MENU[3]+": "+ err);
+        }
+        break;
+
+
         break;
         
         case "2":
-        Console.WriteLine("_________________________LIST OR BY ID____________________________");
-        foreach (var item in LService.Visitantes)
+   
+        Console.WriteLine(INTEFACE_MENU[5]);
+
+        foreach (var item in LService.GetListOrdById())
         {
             string montCondition = 
-            "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"+
+                INTEFACE_MENU[6]+
                 "| ID: " + item.ID +
                 "\n| NAME: " + item.Name +
                 "\n| DOCUMENTS: " + item.Documents +
                 "\n| DATA VISIT: " + item.DataVisit.ToString("dd/MM/yyyy") +
                 "\n| IS VISIT PRIMARY: " + item.isVisitPrimary +
                 "\n| IS HOSPED: " + item.isHosped;
-            Console.WriteLine(montCondition);
-        }
-        Console.WriteLine("__________________________________________________________________\n");
 
+            Console.WriteLine(montCondition);
+            Console.WriteLine(INTEFACE_MENU[6]);
+
+        }
+     Console.WriteLine(INTEFACE_MENU[4]);
         break;
         
         case "3":
-        Console.Write("NOME DO CLIENT:");
-        string nameClient = Console.ReadLine();
-        Console.WriteLine("SAIDA REALIZADA COM SUCESSO..");
-        LService.ExitVisit(nameClient);
+          condition = false;
         break;
-
-
-        case "5":
-        condition = false;
-        break;
-        
+       
         default:
-
+        Console.WriteLine("OPÇÂO INALIDA ...");
         break;
     }
-}while (true);
+}while (condition);
