@@ -3,13 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>dia02</RootNamespace>
+    <RootNamespace>Case_01</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>
-
-
-<!-- A INTERFACE A GENTE NÃO COLOCA CODIGO -->
-<!--  INTERFACE SERVE SOMENTE PARA REPRESENTAR, E NÃO PORCESSAR CODIGO -->
