@@ -1,6 +1,0 @@
-@CaseProject_HostAddress = http://localhost:5167
-
-GET {{CaseProject_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
