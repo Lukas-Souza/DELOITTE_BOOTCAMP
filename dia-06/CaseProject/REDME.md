@@ -13,3 +13,6 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
     "DefaultConnection": "Hos=localhost;Port=5432;Database=minhaapi_db;Username=postgres;Password=postgres"
     }
 ````
+
+
+dotnet add package EFCore.NamingConventions

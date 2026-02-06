@@ -9,33 +9,27 @@ namespace MinhaApi.Data
         public DbSet<Minerio> LotesMinerio => Set<Minerio>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("public");
-
-            modelBuilder.Entity<Minerio>(e =>
+            try
             {
-                e.ToTable("lotes_minerio_table");
+                modelBuilder.HasDefaultSchema("public");
 
-                e.HasIndex(x => x.Id)
-                .IsUnique();
+                modelBuilder.Entity<Minerio>(e =>
+            {
+                e.ToTable("lote_minerio_table");
+                e.HasKey(e => e.Id); 
+                e.Property(e => e.Kilograma).HasColumnName("kilograma");
+             // Define a chave primária
+        
+        e.Property(e => e.Id).HasColumnName("id");
 
-                e.Property(x => x.CodElementoQuimico)
-                    .IsRequired();
-
-                e.Property(x => x.CodigoMineradora)
-                .IsRequired();
-
-                e.Property(x => x.CodLote)
-                .IsRequired();
-
-                e.Property(x => x.DataMineracao)
-                .IsRequired();
-
-                e.Property(x => x.KiloGrama)
-                .IsRequired();
-                
-                e.Property( x => x.ValorPKilo)
-                .IsRequired();
             });
+            }
+            catch (Exception err)
+            {
+                
+                Console.WriteLine("Ocorreu um erro: " + err);
+            }
+  
         }
     }
 }

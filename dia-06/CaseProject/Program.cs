@@ -10,7 +10,7 @@ try
 {
     // Conexão com o banco de dados, por default
     builder.Services.AddDbContext<AppDbContext> (option =>
-    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")) .UseSnakeCaseNamingConvention()
 );   
 }
 catch (Exception err)
