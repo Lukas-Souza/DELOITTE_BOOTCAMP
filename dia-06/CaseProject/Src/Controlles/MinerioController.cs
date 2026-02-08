@@ -8,7 +8,7 @@ using MinhaApi.Data;
 namespace Controllers
 {
     [ApiController]
-    [Route("/minerio")]
+    [Route("/lot-minerio")]
     public class MinerioController : ControllerBase
     {
         private readonly AppDbContext Db_;
@@ -16,41 +16,61 @@ namespace Controllers
 
 
         [HttpGet]
-        public IActionResult TestGet()
+        public async Task<IActionResult> TestGet()
         {
 
-            return Ok("REQUESIÇÂO REALIZADA COM SUCESSO");
+            var returnAll = await Db_.LotesMinerio.ToListAsync();
+            return Ok(returnAll);
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            if(id != null)
+            {
+                // SELECT * FROM WHERE id={id_variable}
+                var loteById = await Db_.LotesMinerio.FindAsync(id);
+                if (loteById == null)
+                {
+                    return NotFound();
+                }
+                return Ok(loteById);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateMinerio([FromBody] MinerioDto dto)
+        public async Task<IActionResult> CreateMinerio([FromBody] RequireLotMinerioDto dto)
         {
             if (dto == null) return BadRequest("A requesição esta vindo invalida!!");
             else
             {
-                var lote = new Minerio
-                {
-                    Kilograma = dto.kilograma
-                };
+                LotMinerio lote = new LotMinerio(
+                    dto.Teor,
+                    dto.PesoQuantidade,
+                    dto.ValorPKilo,
+                    dto.UnidadeDeMedidaPeso.ToUpper(),
+                    dto.TipoMinerio.ToUpper(),
+                    dto.Status.ToUpper(),
+                    dto.IdMineradora.ToUpper()
+                );
                 try
                 {
-                    Db_.LotesMinerio.Add(lote);
-                    await Db_.SaveChangesAsync();
+                     Db_.LotesMinerio.Add(lote);
+                     await Db_.SaveChangesAsync();
                 
-                    return Ok("CRAETEEE: "+ dto.kilograma);
+                    return Ok("Registro realizado com sucesso: ");
 
                 }
                 catch (Exception err)
                 {
-
-                    Console.WriteLine("Ocorreu um erro: " + err);
-                    return BadRequest("ERRO");
+                    return BadRequest("Ocorreu algum erro ao cadastrar: "+ err);
                 }
-
-
             }
-
-
         }
+
     }
 }
