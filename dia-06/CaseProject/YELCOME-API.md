@@ -21,20 +21,20 @@ Loremmmmmmm
 
 | Ordem  | Status        | Descrição                                                |
 |--------| ------------- | -------------------------------------------------------- |
-|        | PLANEJADO     | Lote registrado no sistema, ainda não iniciado.          |
-|        | EXTRACAO      | Minério está sendo extraído da mina.                     |
-|        | EXTRAIDO      | Minério já foi retirado, aguardando processamento.       |
-|        | PROCESSAMENTO | Está passando por beneficiamento.                        |
-|        | PROCESSADO    | Já foi beneficiado tecnicamente.                         |
-|        | ESTOQUE       | Armazenado no pátio ou silo.                             |
-|        | RESERVADO     | Vinculado a uma venda ou cliente.                        |
-|        | CARREGAMENTO  | Em processo de embarque.                                 |
-|        | TRANSPORTE    | Em deslocamento até o destino.                           |
-|        | ENTREGUE      | Recebido pelo cliente.                                   |
-|        | FATURADO      | Nota fiscal emitida.                                     |
-|        | ENCERRADO     | Processo totalmente finalizado.                          |
-|        | BLOQUEADO     | Impedido por problemas técnicos, legais ou de qualidade. |
-|        | CANCELADO     | Lote ou operação cancelada.                              |
+|    1º   | PLANEJADO     | Lote registrado no sistema, ainda não iniciado.          |
+|       2º | EXTRACAO      | Minério está sendo extraído da mina.                     |
+|        3º| EXTRAIDO      | Minério já foi retirado, aguardando processamento.       |
+|      4º  | PROCESSAMENTO | Está passando por beneficiamento.                        |
+|       5º | PROCESSADO    | Já foi beneficiado tecnicamente.                         |
+|       6º| ESTOQUE       | Armazenado no pátio ou silo.                             |
+|       7º | RESERVADO     | Vinculado a uma venda ou cliente.                        |
+|       8º | CARREGAMENTO  | Em processo de embarque.                                 |
+|       9º | TRANSPORTE    | Em deslocamento até o destino.                           |
+|       10º | ENTREGUE      | Recebido pelo cliente.                                   |
+|        11º| FATURADO      | Nota fiscal emitida.                                     |
+|        12º| ENCERRADO     | Processo totalmente finalizado.                          |
+|    ***    | BLOQUEADO     | Impedido por problemas técnicos, legais ou de qualidade. |
+|    ***    | CANCELADO     | Lote ou operação cancelada.                              |
 
 </br>
 
