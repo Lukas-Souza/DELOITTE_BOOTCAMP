@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-01\\dia-01.csproj": {}
+    "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-01/dia-01.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-01\\dia-01.csproj": {
+    "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-01/dia-01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-01\\dia-01.csproj",
+        "projectUniqueName": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-01/dia-01.csproj",
         "projectName": "dia-01",
-        "projectPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-01\\dia-01.csproj",
-        "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-01\\obj\\",
+        "projectPath": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-01/dia-01.csproj",
+        "packagesPath": "/home/lucas-lima/.nuget/packages/",
+        "outputPath": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-01/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/lucas-lima/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/home/lucas-lima/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
