@@ -5,6 +5,7 @@ namespace DTOs
             
         
         public string? StatusTransaction{get;set;}
-        public DateTime OutHourTransaction{get;set;}
+        public DateTime DateTransaction{get;set;}
+
         }
 }

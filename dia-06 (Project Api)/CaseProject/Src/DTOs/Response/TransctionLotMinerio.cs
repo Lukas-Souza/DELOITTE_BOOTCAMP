@@ -4,6 +4,8 @@ namespace DTOs.Response
     {
         public int IdLote {get;set;}
         public string? StatusTransaction{get;set;}
-        public DateTime OutHourTransaction{get;set;}
+        public string? DateTransaction{get;set;}
+        public string ?HourTransaction {get;set;}
+
     }
 }

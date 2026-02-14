@@ -4,5 +4,6 @@ namespace  DTOs
     {
         public string? NewStatus { get; set; }
         public int LotMinerio {get;set;}
+
     }
 }

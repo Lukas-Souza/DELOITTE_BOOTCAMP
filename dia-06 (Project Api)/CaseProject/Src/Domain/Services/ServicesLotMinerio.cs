@@ -52,7 +52,9 @@ namespace Services
                     {
                         IdLote = item.IdLote,   
                         StatusTransaction = item.Status,
-                        OutHourTransaction = item.DataExtracao
+                        HourTransaction = item.DataExtracao.ToString("HH:mm"),
+                        DateTransaction = item.DataExtracao.ToString("dd/MM/yyyy")
+                        
                     }
                 );
             }

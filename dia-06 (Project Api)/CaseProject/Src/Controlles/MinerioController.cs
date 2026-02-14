@@ -136,23 +136,6 @@ namespace CaseProject.Controlles
             
         }
         // GETs
-        [HttpGet("status")]
-        public async Task<IActionResult> GetElementByStatus([FromQuery] string status_query)
-        {
-        try
-        {
-            var GetElementByStatus_ = Db_.LotesMinerio.Where(x => x.Status == status_query.ToUpper());
-            return Ok(GetElementByStatus_);
-                    
-        
-                
-        }
-        catch (System.Exception)
-        {
-            
-            return StatusCode(500, new {menssagen="Ocorreu algum erro interno."});
-        }
-        
-        }
+    
     }
 }
