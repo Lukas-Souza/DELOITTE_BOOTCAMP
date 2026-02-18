@@ -1,7 +1,7 @@
 using Models;
 using DTOs;
 using Castle.Components.DictionaryAdapter.Xml;
-namespace Dto
+namespace ModelsTest
 {
     public class LotMinerioTest
     {
@@ -109,7 +109,82 @@ namespace Dto
             };
         _lotMinerio.Atualizar(Update);  
         }   
-        
+        [Theory]
+        [InlineData(null, "Ferro", "EXTRACAO", "M077")]
+        [InlineData("kg", null, "EXTRACAO", "M077")]
+        [InlineData("kg", "Ferro", null, "M077")]
+        [InlineData("kg", "Ferro", "EXTRACAO", null)]
+        public void UpdateNullParamText(
+        string unidade,
+        string tipo,
+        string status,
+        string idMineradora)
+        {
+    // Arrange
+        var lot = new LotMinerio(new RequireLotMinerioDto
+        {
+            Teor = 89,
+            PesoQuantidade = 55,
+            ValorPKilo = 45,
+            UnidadeDeMedidaPeso = "TON",
+            TipoMinerio = "CILICIO",
+            Status = "EXTRACAO",
+            IdMineradora = "ID-2500"
+        });
+
+        var update = new UpdateLotMinerio
+        {
+            Teor = 10,
+            PesoQuantidade = 2200.75,
+            ValorPKilo = 35.9,
+            UnidadeDeMedidaPeso = unidade,
+            TipoMinerio = tipo,
+            Status = status,
+            IdMineradora = idMineradora
+        };
+
+        // Act 
+        var Err =Assert.Throws<ArgumentException>(() =>
+        {
+            lot.Atualizar(update);
+        });
+        Assert.Equal("Dados invalidos", Err.Message);
+    }
+    [Theory]
+    [InlineData(null, 5.5, 4.6)]
+    [InlineData(5.5, null, 4.6)]
+    [InlineData(5.5, 4.6, null)]
+    [InlineData(4.6, 5.5, 0)]
+    [InlineData(5.5, 4.6, 0)]
+    [InlineData(0, 4.6, 5.5)]
+       
+    public void TestParamNullNumbers(double _teor, double _pesoQuantiade, double valoPkilo){
+                var lot = new LotMinerio(new RequireLotMinerioDto
+        {
+            Teor = 89,
+            PesoQuantidade = 55,
+            ValorPKilo = 45,
+            UnidadeDeMedidaPeso = "TON",
+            TipoMinerio = "CILICIO",
+            Status = "EXTRACAO",
+            IdMineradora = "ID-2500"
+        });
+
+        var update = new UpdateLotMinerio
+        {
+            Teor = _teor,
+            PesoQuantidade = _pesoQuantiade,
+            ValorPKilo = valoPkilo,
+            UnidadeDeMedidaPeso = "TON",
+            TipoMinerio = "TEST",
+            Status = "CANCELADO",
+            IdMineradora = "ID-0001"
+        };
+        Assert.Throws<ArgumentException>(() => {
+            lot.Atualizar(update);
+        });
+
+    }  
     }
 }    
 
