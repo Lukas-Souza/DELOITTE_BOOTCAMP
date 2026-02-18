@@ -1,5 +1,6 @@
 using System;
 using Enums.StatusLote;
+using DTOs;
 namespace Models
 {
     public class LotMinerio
@@ -15,91 +16,94 @@ namespace Models
         public DateTime DataExtracao {get;private set;}
 
         public LotMinerio(
-
-            // PARAM 
-            double _Teor,
-            double _PesoQuantidade,
-            double _ValorPKilo,
-            string _UnidadeDeMedida,
-            string _TipoMinerio,
-            string _Status,
-            string _IdMineradora
+           RequireLotMinerioDto requireLotMinerioDto 
         )
         {
             // Program
-            bool IsNullUnidade = string.IsNullOrWhiteSpace(_UnidadeDeMedida);
-            bool IsNullTipo = string.IsNullOrWhiteSpace(_TipoMinerio);
-            bool IsNullStatusAndExistIndList = string.IsNullOrWhiteSpace(_Status)&& Enum.IsDefined(typeof(StatusLote), _Status.ToUpper());
-            bool IsNullIdMineradora = string.IsNullOrWhiteSpace(_IdMineradora);
+            bool IsNullUnidade = string.IsNullOrWhiteSpace(requireLotMinerioDto.UnidadeDeMedidaPeso);
+            bool IsNullTipo = string.IsNullOrWhiteSpace(requireLotMinerioDto.TipoMinerio);
+            bool IsNullStatusAndExistIndList = string.IsNullOrWhiteSpace(requireLotMinerioDto.Status) || !Enum.IsDefined(typeof(StatusLote), requireLotMinerioDto.Status.ToUpper());
+            bool IsNullIdMineradora = string.IsNullOrWhiteSpace(requireLotMinerioDto.IdMineradora);
 
-            bool IsNegativoTeor = _Teor <= 0;
-            bool IsNegativoPesoQuantidade = _PesoQuantidade <=0;
-            bool IsNegativoValorPKilon = _ValorPKilo <=0;
+            bool IsNegativoTeor = requireLotMinerioDto.Teor <= 0;
+            bool IsNegativoPesoQuantidade = requireLotMinerioDto.PesoQuantidade <=0;
+            bool IsNegativoValorPKilon = requireLotMinerioDto.ValorPKilo <=0;
 
-            bool IsNullString = IsNullUnidade && IsNullTipo && IsNullStatusAndExistIndList && IsNullIdMineradora;
-            bool IsNullDouble = IsNegativoValorPKilon && IsNegativoPesoQuantidade && IsNegativoTeor;
+            bool IsNullString = IsNullUnidade || IsNullTipo || IsNullStatusAndExistIndList || IsNullIdMineradora;
+            bool IsNullDouble = IsNegativoValorPKilon || IsNegativoPesoQuantidade || IsNegativoTeor;
 
-            bool IsValidation = IsNullString && IsNullDouble;
+            bool IsValidation = IsNullString || IsNullDouble;
 
             if (!IsValidation)
             {
-                this.Teor = _Teor;
-                this.PesoQuantidade = _PesoQuantidade;
-                this.ValorPKilo = _ValorPKilo;
-                this.UnidadeDeMedidaPeso = _UnidadeDeMedida;
-                this.TipoMinerio = _TipoMinerio;
-                this.Status = _Status;
-                this.IdMineradora = _IdMineradora;
+                this.Teor = requireLotMinerioDto.Teor;
+                this.PesoQuantidade = requireLotMinerioDto.PesoQuantidade;
+                this.ValorPKilo = requireLotMinerioDto.ValorPKilo;
+                this.UnidadeDeMedidaPeso = requireLotMinerioDto.UnidadeDeMedidaPeso;
+                this.TipoMinerio = requireLotMinerioDto.TipoMinerio;
+                this.Status = requireLotMinerioDto.Status;
+                this.IdMineradora = requireLotMinerioDto.IdMineradora;
+                this.DataExtracao = DateTime.UtcNow;
+            }
+            else
+            {
+                 throw new ArgumentException("os dados fornecidos são invalidos");
+            }
+        }
+        
+        // Para ficar visivel para o EF
+        public void Atualizar(
+            // PARAM 
+            UpdateLotMinerio updateLotMinerio
+        )
+        {
+            // Program
+            bool IsNullUnidade = string.IsNullOrWhiteSpace(updateLotMinerio.UnidadeDeMedidaPeso);
+            bool IsNullTipo = string.IsNullOrWhiteSpace(updateLotMinerio.TipoMinerio);
+            bool IsNullStatusAndExistIndList = string.IsNullOrWhiteSpace(updateLotMinerio.Status) || !Enum.IsDefined(typeof(StatusLote), updateLotMinerio.Status.ToUpper());
+            bool IsNullIdMineradora = string.IsNullOrWhiteSpace(updateLotMinerio.IdMineradora);
+
+            bool IsNegativoTeor = updateLotMinerio.Teor <= 0;
+            bool IsNegativoPesoQuantidade = updateLotMinerio.PesoQuantidade <=0;
+            bool IsNegativoValorPKilon = updateLotMinerio.ValorPKilo <=0;
+
+            bool IsNullString = IsNullUnidade || IsNullTipo || IsNullStatusAndExistIndList || IsNullIdMineradora;
+            bool IsNullDouble = IsNegativoValorPKilon || IsNegativoPesoQuantidade || IsNegativoTeor;
+
+            bool IsValidation = IsNullString || IsNullDouble;
+
+
+            if (!IsValidation)
+            {
+                this.Teor = updateLotMinerio.Teor;
+                this.PesoQuantidade = updateLotMinerio.PesoQuantidade;
+                this.ValorPKilo = updateLotMinerio.ValorPKilo;
+                this.UnidadeDeMedidaPeso = updateLotMinerio.UnidadeDeMedidaPeso.ToUpper();
+                this.TipoMinerio = updateLotMinerio.TipoMinerio.ToUpper();
+                this.Status = updateLotMinerio.Status.ToUpper();
+                this.IdMineradora = updateLotMinerio.IdMineradora.ToUpper();
                 this.DataExtracao = DateTime.UtcNow;
 
             }
             else
             {
-                return;
+                throw new ArgumentException("Dados invalidos");
             }
         }
-        
-        // Para ficar visivel para o EF
-
-        public void Atualizar(
-
-            // PARAM 
-            double _Teor,
-            double _PesoQuantidade,
-            double _ValorPKilo,
-            string _UnidadeDeMedida,
-            string _TipoMinerio,
-            string _Status,
-            string _IdMineradora
-        )
+        public void UpdateTrasaction(UpdateTransaction updateTransaction)
         {
-            // Program
-            bool IsNullUnidade = string.IsNullOrWhiteSpace(_UnidadeDeMedida);
-            bool IsNullTipo = string.IsNullOrWhiteSpace(_TipoMinerio);
-            bool IsNullStatusAndExistsInList = string.IsNullOrWhiteSpace(_Status) && Enum.IsDefined(typeof(StatusLote), _Status.ToUpper());
-            bool IsNullIdMineradora = string.IsNullOrWhiteSpace(_IdMineradora);
-
-            bool IsNegativoTeor = _Teor <= 0;
-            bool IsNegativoPesoQuantidade = _PesoQuantidade <=0;
-            bool IsNegativoValorPKilon = _ValorPKilo <=0;
-
-            bool IsNullString = IsNullUnidade && IsNullTipo && IsNullStatusAndExistsInList && IsNullIdMineradora;
-            bool IsNullDouble = IsNegativoValorPKilon && IsNegativoPesoQuantidade && IsNegativoTeor;
-
-            bool IsValidation = IsNullString && IsNullDouble;
-
-            if (!IsValidation)
+        bool IsNull = string.IsNullOrWhiteSpace(updateTransaction.NewStatus) || !Enum.IsDefined(typeof(StatusLote), updateTransaction.NewStatus.ToUpper());
+        bool IsNegative = updateTransaction.LotMinerio <= 0;
+        bool Validation = IsNull || IsNegative;
+        if (!Validation)
             {
-                this.Teor = _Teor;
-                this.PesoQuantidade = _PesoQuantidade;
-                this.ValorPKilo = _ValorPKilo;
-                this.UnidadeDeMedidaPeso = _UnidadeDeMedida.ToUpper();
-                this.TipoMinerio = _TipoMinerio.ToUpper();
-                this.Status = _Status.ToUpper();
-                this.IdMineradora = _IdMineradora.ToUpper();
-                this.DataExtracao = DateTime.UtcNow;
-
+                Status = updateTransaction.NewStatus;
+                DataExtracao = DateTime.UtcNow;
             }
+        else
+        {
+            throw new ArgumentException("dados invalidos");
+        } 
         }
 
  protected LotMinerio() { }       

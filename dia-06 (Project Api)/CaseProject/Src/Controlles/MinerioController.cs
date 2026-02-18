@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DTOs;
 using Models;
-using MinhaApi;
-using MinhaApi.Data;
+
+using Data;
 using Microsoft.AspNetCore.SignalR;
 using DTOs.Response;
 
@@ -44,19 +44,13 @@ namespace CaseProject.Controlles
             if (dto == null) return BadRequest("A requesição esta vindo invalida!!");
             else
             {
-                LotMinerio lote = new LotMinerio(
-                    dto.Teor,
-                    dto.PesoQuantidade,
-                    dto.ValorPKilo,
-                    dto.UnidadeDeMedidaPeso.ToUpper(),
-                    dto.TipoMinerio.ToUpper(),
-                    dto.Status.ToUpper(),
-                    dto.IdMineradora.ToUpper()
-                );
+                  
                 try
                 {
-                     Db_.LotesMinerio.Add(lote);
-                     await Db_.SaveChangesAsync();
+
+                    LotMinerio lote = new LotMinerio(dto);
+                    Db_.LotesMinerio.Add(lote);
+                    await Db_.SaveChangesAsync();
                 
                     var ResponseObjet = new DtoResponse
                     {
@@ -67,17 +61,18 @@ namespace CaseProject.Controlles
                         Status = lote.Status,
                         IdMineradora = lote.IdMineradora
                     };    
-                    return Ok(ResponseObjet);
+                    return StatusCode(201);
 
                 }
-                catch (Exception err)
+                
+                catch (ArgumentException err)
                 {
-                    return StatusCode(500);
+                    return BadRequest($"Ocorreu um erro: {err}");
                 }
-            }
-        }
+
+            }}
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutElementById(int id, [FromBody] RequireLotMinerioDto dto)
+    public async Task<IActionResult> PutElementById(int id, [FromBody] UpdateLotMinerio dto)
         {
             // Id == id
             var loteResult = await Db_.LotesMinerio.FindAsync(id);
@@ -85,15 +80,7 @@ namespace CaseProject.Controlles
             {
                 return NotFound();
             }
-            loteResult.Atualizar(
-                    dto.Teor,
-                    dto.PesoQuantidade,
-                    dto.ValorPKilo,
-                    dto.UnidadeDeMedidaPeso.ToUpper(),
-                    dto.TipoMinerio.ToUpper(),
-                    dto.Status.ToUpper(),
-                    dto.IdMineradora.ToUpper()
-                );
+            loteResult.Atualizar(dto);
 
             try
             {

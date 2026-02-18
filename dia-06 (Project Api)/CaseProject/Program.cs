@@ -1,6 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using MinhaApi.Data;
+using Data;
 using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();

@@ -9,5 +9,6 @@ public class RequireLotMinerioDto
     public string? TipoMinerio {get; set;}
     public string? Status {get; set;}
     public string? IdMineradora {get; set;}
+
 }
 }

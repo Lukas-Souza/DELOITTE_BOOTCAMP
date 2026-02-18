@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-using MinhaApi.Data;
+using Data;
 using DTOs;
 using Services;
 using Models;
@@ -47,18 +47,13 @@ namespace CaseProject.Controlles
     [HttpPut]
     public async Task<IActionResult> UpdateStatus( [FromBody] UpdateTransaction updateTransaction)
     {
-        var ResultPost = await Db_.LotesMinerio.FindAsync( updateTransaction.LotMinerio);
-         ResultPost.Atualizar(
-                    ResultPost.Teor,
-                    ResultPost.PesoQuantidade,
-                    ResultPost.ValorPKilo,
-                    ResultPost.UnidadeDeMedidaPeso.ToUpper(),
-                    ResultPost.TipoMinerio.ToUpper(),
-                    updateTransaction.NewStatus,
-                    ResultPost.IdMineradora.ToUpper()
-        ); 
+        var ResultPost = await Db_.LotesMinerio.FindAsync(updateTransaction.LotMinerio);
+        
+        ResultPost.UpdateTrasaction(updateTransaction); 
+        
         await Db_.SaveChangesAsync();
-     return StatusCode(201); 
+        
+        return StatusCode(201); 
     }
 
 

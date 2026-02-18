@@ -2,7 +2,7 @@ using DTOs;
 using DTOs.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MinhaApi.Data;
+using Data;
 using Models;
 using Services;
 namespace CaseProject.Controlles
@@ -17,7 +17,6 @@ namespace CaseProject.Controlles
     public ExtraControllers(AppDbContext db) => Db_ = db;
 
     [HttpGet]
-    // http://localhost:5167/lot-minerio/transaction/history
     public async Task<IActionResult> GetHistoryTransction()
     {
     List<LotMinerio> DatResult = await Db_.LotesMinerio.ToListAsync();
@@ -26,7 +25,6 @@ namespace CaseProject.Controlles
 
 
     [HttpGet("{id}")]
-    // http://localhost:5167/lot-minerio/transaction/history/{id}
     public async Task<IActionResult> GetHistoryTransctionById(int id)
     {
     LotMinerio DatResult = await Db_.LotesMinerio.FindAsync(id);
