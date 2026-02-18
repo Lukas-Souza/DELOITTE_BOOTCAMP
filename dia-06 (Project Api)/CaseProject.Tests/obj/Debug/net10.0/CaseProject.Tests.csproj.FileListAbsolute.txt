@@ -115,3 +115,12 @@
 /home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/obj/Debug/net10.0/CaseProject.Tests.pdb
 /home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/obj/Debug/net10.0/CaseProject.Tests.genruntimeconfig.cache
 /home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/obj/Debug/net10.0/ref/CaseProject.Tests.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Caching.Abstractions.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Caching.Memory.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Logging.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Options.dll
+/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06 (Project Api)/CaseProject.Tests/bin/Debug/net10.0/Microsoft.Extensions.Primitives.dll

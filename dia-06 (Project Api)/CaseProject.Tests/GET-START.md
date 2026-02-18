@@ -21,3 +21,8 @@ dotnet add package Microsoft.AspNetCore.Mvc.Testing
 ```bash
 dotnet add package FluentAssertion
 ```
+
+
+```
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
