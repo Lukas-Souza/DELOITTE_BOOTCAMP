@@ -1,0 +1,30 @@
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: final_chanllenge
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-sistem_equipaments_db}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+
+      - "5432:5432"
+    volumes:
+      - pgdata_estudos:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-sistem_equipaments_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    # Labels opcionais úteis para Rancher (facilitam identificação/agrupamento)
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.name: "PostgreSQL - Final Challenge"
+  
+volumes:
+  pgdata_estudos:
+    driver: local
