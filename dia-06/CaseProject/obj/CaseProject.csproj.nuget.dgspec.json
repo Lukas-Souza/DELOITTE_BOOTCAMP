@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06/CaseProject/CaseProject.csproj": {}
+    "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-06\\CaseProject\\CaseProject.csproj": {}
   },
   "projects": {
-    "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06/CaseProject/CaseProject.csproj": {
+    "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-06\\CaseProject\\CaseProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06/CaseProject/CaseProject.csproj",
+        "projectUniqueName": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-06\\CaseProject\\CaseProject.csproj",
         "projectName": "CaseProject",
-        "projectPath": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06/CaseProject/CaseProject.csproj",
-        "packagesPath": "/home/lucas-lima/.nuget/packages/",
-        "outputPath": "/home/lucas-lima/Dev/DELOITTE_BOOTCAMP/dia-06/CaseProject/obj/",
+        "projectPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-06\\CaseProject\\CaseProject.csproj",
+        "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\dia-06\\CaseProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/lucas-lima/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/lucas-lima/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

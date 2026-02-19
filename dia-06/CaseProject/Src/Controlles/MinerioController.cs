@@ -93,8 +93,9 @@ namespace Controllers
             }
             catch (Exception err)
             {
-                
-                return StatusCode(500, new {erro = "Ocorreu um erro ao atualizar o elemento.", menssagen = err});
+                return StatusCode(500, new {
+                erro = "Ocorreu um erro ao atualizar o elemento.", menssagen = err
+                });
             }
         }
         [HttpDelete("{id}")]
@@ -145,3 +146,5 @@ namespace Controllers
         }
     }
 }
+
+

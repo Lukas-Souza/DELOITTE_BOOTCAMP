@@ -17,7 +17,7 @@ Loremmmmmmm
 - **DataExtracao** – Data em que o minério foi extraído.
 
 ## Fluxo de operação do status do lote
-## Status do Lote
+### Status do Lote
 
 | Ordem  | Status        | Descrição                                                |
 |--------| ------------- | -------------------------------------------------------- |
@@ -40,15 +40,35 @@ Loremmmmmmm
 
 # Operações do sistema
 ## Consultar 
+#### GET
+````bash 
+# Retornar todos os registros
+https://localhost:5167/lot-minerio/   
+````
 ## Consultar by id
+
+````bash 
+# Retornar todos os registros
+https://localhost:5167/lot-minerio/{number}    
+````
 ## Consultar lote pelo status
+`````python 
+# Retorna todos os registros que tenha o status iguais a query
+https://localhost:5167/lot-minerio/status={status_text}
+`````
 ## Adicionar um novo lote
+### Json Body
+````Json
+{
+    
+}
+````
 ## Atualizar um lote por id
 ## Remover um lote por id
 
 ## Regra de validação 
 
 
-
-
-
+````Javascript
+int  
+````
