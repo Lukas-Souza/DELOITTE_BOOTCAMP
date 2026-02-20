@@ -34,7 +34,7 @@ namespace Controller
                 Equipaments equipaments = new Equipaments(_equipaments);
                 Db_.Equipaments.Add(equipaments);
                 await Db_.SaveChangesAsync();
-                return Ok("");
+                return StatusCode(201);
             }
             catch (ArgumentException err)
             {
@@ -52,11 +52,11 @@ namespace Controller
             {
                 return NotFound();
             }
-            equipament.Update(_updateEquipamentos);
             try
             {
+                equipament.Update(_updateEquipamentos);
                 Db_.SaveChanges();
-                return NoContent();
+                return StatusCode(204);
             }
             catch (System.Exception)
             {
@@ -73,7 +73,8 @@ namespace Controller
             try
             {
                 Db_.Remove(Elemenet);
-                return NoContent();
+                await Db_.SaveChangesAsync();
+                return StatusCode(204);
             }
             catch (ArgumentException err)
             {

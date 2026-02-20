@@ -53,15 +53,15 @@ http://localhost:5132/equipamentos/{id}
 ````bash
 http://localhost:5132/equipamentos/{id}
 ````
-
+## CONTENDER
 ## GET START
 #### GIT CLONE 
 ````bash
  git clone https://github.com/Lukas-Souza/DELOITTE_BOOTCAMP.git
- cd 
+ cd ./SistemEquipaments
 ````
 
 #### RUN PROJECT
 ````bash
-
+  docker up -d
 ````

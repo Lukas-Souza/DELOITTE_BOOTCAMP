@@ -2242,11 +2242,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\FinalChallenge\\SistemEquipaments\\SistemEquipaments.csproj",
+      "projectUniqueName": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\SistemEquipaments\\SistemEquipaments.csproj",
       "projectName": "SistemEquipaments",
-      "projectPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\FinalChallenge\\SistemEquipaments\\SistemEquipaments.csproj",
+      "projectPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\SistemEquipaments\\SistemEquipaments.csproj",
       "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\FinalChallenge\\SistemEquipaments\\obj\\",
+      "outputPath": "C:\\Users\\aluno\\DELOITTE_BOOTCAMP\\SistemEquipaments\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
