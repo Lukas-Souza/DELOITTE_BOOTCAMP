@@ -55,7 +55,7 @@ http://localhost:5132/equipamentos/{id}
 ````
 ## GET START
 #### GIT CLONE 
-````bash
+```bash
  git clone https://github.com/Lukas-Souza/DELOITTE_BOOTCAMP.git
  cd ./SistemEquipaments
 ````
